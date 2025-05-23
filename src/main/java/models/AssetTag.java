@@ -14,7 +14,6 @@ public class AssetTag {
         AWAITING_DISPOSAL,
         DISPOSED
     }
-
     private final String tag;
     private Status status;
     private final LocalDate creationDate;
@@ -32,7 +31,6 @@ public class AssetTag {
         this.creationDate = LocalDate.now();
         assetTagRegistry.add(tag);
     }
-
     public AssetTag(String tag, Status status) {
         if (tag == null || tag.isEmpty()) throw new IllegalArgumentException("Tag is required");
         if (assetTagRegistry.contains(tag)) throw new IllegalArgumentException("Tag must be unique");
@@ -42,7 +40,6 @@ public class AssetTag {
         this.creationDate = LocalDate.now();
         assetTagRegistry.add(tag);
     }
-
 
     public Game getGame() {
         return game;

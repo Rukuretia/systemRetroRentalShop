@@ -42,11 +42,13 @@ public class Studio {
         if(game == null) throw new NullPointerException("Game is required");
         if(this.games.contains(game)) return;
         this.games.add(game);
-        game.setStudio(this);
+        if(game.getStudio() != this) game.setStudio(this);
     }
     public void removeGame(Game game){
         if(game == null) throw new NullPointerException("Game is required");
-        if(this.games.remove(game)) game.setStudio(null);
+        if(this.games.remove(game)){
+            if(game.getStudio() == this) game.setStudio(null);
+        }
     }
 
 }
